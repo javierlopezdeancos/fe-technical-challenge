@@ -1,5 +1,5 @@
 import React from 'react'
-import {  Route, Switch } from "wouter";
+import { Route, Switch } from "wouter";
 import './app.css'
 import GrandmastersPage from './pages/grandmasters/grandmasters-page';
 
