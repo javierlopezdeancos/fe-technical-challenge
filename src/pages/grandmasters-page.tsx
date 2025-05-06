@@ -1,6 +1,6 @@
 import React, { use } from 'react'
-import getGrandMastersApi from '../../grandmasters/get-grandmasters-api';
-import { type GrandmasterPlayerName } from '../../grandmasters/grandmasters';
+import getGrandMastersApi from '../grandmasters/get-grandmasters-api';
+import { type GrandmasterPlayerName } from '../grandmasters/grandmasters';
 
 function GrandmastersPage(): React.ReactElement {
   const grandmasters = use(getGrandMastersApi());

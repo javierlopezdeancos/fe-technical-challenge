@@ -1,7 +1,7 @@
 import React from 'react'
 import { Route, Switch } from "wouter";
 import './app.css'
-import GrandmastersPage from './pages/grandmasters/grandmasters-page';
+import GrandmastersPage from './pages/grandmasters-page';
 
 function App(): React.ReactElement {
   return (
