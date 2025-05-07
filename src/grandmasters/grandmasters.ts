@@ -2,9 +2,10 @@ export type GrandmasterUsername = string
 
 export type Granmaster = {
   player_id: number,
+  avatar: string,
   "@id": string,
   url: string,
-  username: string,
+  username: GrandmasterUsername,
   title: string,
   followers: number,
   country: string,
