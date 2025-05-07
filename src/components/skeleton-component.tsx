@@ -1,6 +1,7 @@
+import React from "react"
 import { cn } from "@/helpers/class-name-helper"
 
-function SkeletonComponent({ className, ...props }: React.ComponentProps<"div">) {
+function SkeletonComponent({ className, ...props }: React.ComponentProps<"div">): React.ReactElement  {
   return (
     <div
       data-slot="skeleton"
@@ -10,4 +11,4 @@ function SkeletonComponent({ className, ...props }: React.ComponentProps<"div">)
   )
 }
 
-export { SkeletonComponent }
+export default SkeletonComponent
