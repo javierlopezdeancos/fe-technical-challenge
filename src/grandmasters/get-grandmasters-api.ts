@@ -1,7 +1,7 @@
-import { type GrandmasterPlayerName } from './grandmasters';
+import { type GrandmasterUsername } from './grandmasters';
 
 type GetGrandMastersApiResponse = {
-  players: GrandmasterPlayerName[];
+  players: GrandmasterUsername[];
 }
 
 async function getGrandMastersApi(): Promise<GetGrandMastersApiResponse> {

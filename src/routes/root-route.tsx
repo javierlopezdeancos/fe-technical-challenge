@@ -1,8 +1,7 @@
-import { createRootRoute } from '@tanstack/react-router'
-import GrandmastersPage from '../pages/grandmasters-page';
+import { createRootRoute, Outlet } from '@tanstack/react-router'
 
 export const rootRoute = createRootRoute({
-  component: GrandmastersPage,
+  component: () => <div><Outlet/></div>,
 })
 
 export default rootRoute;
