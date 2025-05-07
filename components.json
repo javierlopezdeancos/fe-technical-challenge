@@ -9,7 +9,7 @@
     "baseColor": "neutral",
     "cssVariables": true,
     "prefix": "",
-    "sufix": "Component"
+    "suffix": "Component"
   },
   "aliases": {
     "components": "@/components",
