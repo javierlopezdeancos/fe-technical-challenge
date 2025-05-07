@@ -3,8 +3,8 @@ import { Link } from '@tanstack/react-router'
 import getGrandMastersApi from './get-grandmasters-api.ts'
 import { type GrandmasterUsername } from './grandmasters.ts'
 import GrandmastersSkeletonComponent from './grandmasters-skeleton-component.tsx'
-import TypographyHeader1Component from '@/components/typography-header-1-component.tsx'
-import TypographyParagraphComponent from '@/components/typography-paragraph-component.tsx'
+import TypographyHeader1Component from '@/components/typography/typography-header-1-component.tsx'
+import TypographyParagraphComponent from '@/components/typography/typography-paragraph-component.tsx'
 
 const grandmastersPromise = getGrandMastersApi();
 
