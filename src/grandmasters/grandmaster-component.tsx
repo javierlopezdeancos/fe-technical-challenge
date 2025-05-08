@@ -1,14 +1,23 @@
 import React from 'react'
 import { getRouteApi } from '@tanstack/react-router'
+import ReactCountryFlag from "react-country-flag"
+import { MapPin } from 'lucide-react';
 import AvatarComponent, { AvatarImageComponent, AvatarFallbackComponent } from '@/components/avatar-component.tsx'
 import CardComponent, { CardTitleComponent, CardContentComponent } from '@/components/card-component.tsx'
-import TypographyHeader1Component from '@/components/typography/typography-header-1-component'
+import TypographyHeader1Component from '@/components/typography/typography-header-1-component.tsx'
+import TypographyHeader3Component from '@/components/typography/typography-header-3-component.tsx'
+import TypographyParagraphComponent from '@/components/typography/typography-paragraph-component.tsx'
 import BadgeComponent from '@/components/badge/badge-component.tsx'
-import SeparatorComponent from '@/components/separator-component.tsx'
+import getFormattedTimezoneDateFromTimestampHelper from '@/helpers/get-formatted-timezone-from-timestamp-helper.ts'
+import getFormattedTimeAgoFromTimestampHelper from '@/helpers/get-formatted-time-ago-from-timestamp-helper.ts'
+import getCountryCodeHelper from '@/helpers/get-country-code-helper.ts';
 
 function GrandmasterPage(): React.ReactElement | null {
   const grandmasterApi = getRouteApi('/$username')
   const grandmaster = grandmasterApi.useLoaderData()
+  const grandmasterJoinedDateFormatted = getFormattedTimezoneDateFromTimestampHelper(grandmaster.joined)
+  const grandmasterFromLastOnlineAgoDateFormatted = getFormattedTimeAgoFromTimestampHelper(grandmaster.last_online)
+  const grandmasterCountryCode = getCountryCodeHelper(grandmaster.country)
 
   return (
     <main>
@@ -20,11 +29,40 @@ function GrandmasterPage(): React.ReactElement | null {
               <AvatarFallbackComponent>CN</AvatarFallbackComponent>
             </AvatarComponent>
             <div className='w-full flex flex-col items-start justify-center gap-3'>
-              <CardTitleComponent className='w-auto'><TypographyHeader1Component>{grandmaster.username}</TypographyHeader1Component></CardTitleComponent>
-              <div className='flex flex-row items-center justify-start gap-6'>
-                <BadgeComponent>{grandmaster.title}</BadgeComponent >
+              <CardTitleComponent className='w-auto'>
+                <TypographyHeader1Component>{grandmaster.username}</TypographyHeader1Component>
+              </CardTitleComponent>
+               <div className='flex flex-row items-center justify-start gap-6'>
+                <div className='flex flex-row items-center justify-center gap-2'>
+                  <BadgeComponent>{grandmaster.title}</BadgeComponent >
+                  <TypographyHeader3Component>{grandmaster.name}</TypographyHeader3Component>
+                  <ReactCountryFlag countryCode={grandmasterCountryCode}
+                    svg
+                    style={{
+                        width: '2em',
+                        height: '2em',
+                    }}
+                    title={grandmasterCountryCode}
+                  />
+                </div>
+                {grandmaster.location ?
+                  <div className='flex flex-row items-center justify-center gap-2'>
+                    <MapPin color="black" size={24} />
+                    <TypographyParagraphComponent>
+                      {grandmaster.location}
+                    </TypographyParagraphComponent>
+                  </div> : null}
               </div>
-              <SeparatorComponent className='my-5' />
+              <div className='flex flex-row items-center justify-start gap-6'>
+                <div className='flex flex-row items-center justify-start gap-2'>
+                  <TypographyParagraphComponent muted>Joined</TypographyParagraphComponent >
+                  <TypographyParagraphComponent>{grandmasterJoinedDateFormatted}</TypographyParagraphComponent >
+                </div>
+                <div className='flex flex-row items-center justify-start gap-2'>
+                  <TypographyParagraphComponent muted>Last online</TypographyParagraphComponent >
+                  <TypographyParagraphComponent>{grandmasterFromLastOnlineAgoDateFormatted}</TypographyParagraphComponent >
+                </div>
+              </div>
             </div>
           </div>
         </CardContentComponent>
