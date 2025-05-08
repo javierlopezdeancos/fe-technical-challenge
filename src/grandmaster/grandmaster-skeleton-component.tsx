@@ -3,7 +3,7 @@ import SkeletonComponent from "@/components/skeleton/skeleton-component.tsx"
 import getRandomNumberBetweenLimitsHelper from "@/helpers/get-random-number-between-limits-helper.ts"
 import useViewportHook from "@/hooks/viewport-hook.ts"
 
-function GrandmastersSkeletonComponent(): React.ReactElement {
+function GrandmasterSkeletonComponent(): React.ReactElement {
   const componentId = useId()
   const { vh } = useViewportHook()
 
@@ -22,4 +22,4 @@ function GrandmastersSkeletonComponent(): React.ReactElement {
   )
 }
 
-export default GrandmastersSkeletonComponent
+export default GrandmasterSkeletonComponent

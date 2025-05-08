@@ -1,4 +1,4 @@
-import { type GrandmasterUsername } from './grandmasters';
+import { type GrandmasterUsername } from '../grandmaster';
 
 type GetGrandMastersApiResponse = {
   players: GrandmasterUsername[];

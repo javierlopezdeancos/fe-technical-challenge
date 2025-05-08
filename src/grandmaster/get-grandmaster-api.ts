@@ -1,4 +1,4 @@
-import { type Granmaster, type GrandmasterUsername } from './grandmasters';
+import { type Granmaster, type GrandmasterUsername } from '../grandmaster';
 
 async function getGrandMasterApi(userName?: GrandmasterUsername): Promise<Granmaster> {
   if (!userName) {
