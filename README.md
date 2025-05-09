@@ -29,6 +29,7 @@ On the profile page for a grandmaster that you created in step 2, add a clock th
 ## Exercise resolution
 
 To resolve the exercise we use some 3rd party libraries
+* [Typescript](https://www.typescriptlang.org)
 * [React](https://react.dev)
 * [Tackstack router](https://tanstack.com/router/latest)
 * [Shadcn](https://ui.shadcn.com)
