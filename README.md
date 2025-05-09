@@ -38,6 +38,7 @@ To resolve the exercise we use some 3rd party libraries
 * [React country flag](https://github.com/lazicnemanja/react-country-flags)
 * [javascript-time-ago](https://www.npmjs.com/package/javascript-time-ago)
 * [Vite](https://vite.dev)
+* [Playwright](https://playwright.dev/)
 * [Prettier]
 * [Eslint]
 
@@ -64,3 +65,14 @@ npm i
 ```
 npm run dev
 ```
+
+#### Execute tests
+
+I choice a set of little example of tests that run with [playwright](https://playwright.dev/). To run this simple example suite you should run:
+
+```
+npm run tests
+```
+
+> [!NOTE]
+> You can run a reporter with the last tests reports run running the command `npm run reports`
