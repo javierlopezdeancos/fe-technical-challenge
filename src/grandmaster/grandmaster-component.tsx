@@ -1,15 +1,16 @@
-import { getRouteApi } from '@tanstack/react-router'
+import { getRouteApi, Link } from '@tanstack/react-router'
 import ReactCountryFlag from "react-country-flag"
-import { MapPin } from 'lucide-react';
+import { MapPin, ChevronLeft } from 'lucide-react';
 import AvatarComponent, { AvatarImageComponent, AvatarFallbackComponent } from '@/components/avatar/avatar-component.tsx'
 import CardComponent, { CardTitleComponent, CardContentComponent } from '@/components/card/card-component.tsx'
 import TypographyHeader1Component from '@/components/typography/typography-header-1-component.tsx'
 import TypographyHeader3Component from '@/components/typography/typography-header-3-component.tsx'
 import TypographyParagraphComponent from '@/components/typography/typography-paragraph-component.tsx'
 import BadgeComponent from '@/components/badge/badge-component.tsx'
+import GrandmasterSkeletonComponent from './grandmaster-skeleton-component.tsx'
 import getFormattedTimezoneDateFromTimestampHelper from '@/helpers/get-formatted-timezone-from-timestamp-helper.ts'
 import getFormattedTimeAgoFromTimestampHelper from '@/helpers/get-formatted-time-ago-from-timestamp-helper.ts'
-import getCountryCodeHelper from '@/helpers/get-country-code-helper.ts';
+import getCountryCodeHelper from '@/helpers/get-country-code-helper.ts'
 
 function GrandmasterPage(): React.ReactElement | null {
   const grandmasterApi = getRouteApi('/$username')
@@ -21,9 +22,19 @@ function GrandmasterPage(): React.ReactElement | null {
   return (
     <main>
       <div className="flex flex-col gap-10 items-start space-x-4 w-full">
-        <TypographyHeader1Component>Grandmaster</TypographyHeader1Component>
+        <div className="flex flex-col gap-5 items-start space-x-4 w-full">
+          <TypographyHeader1Component>Grandmaster</TypographyHeader1Component>
+          <div className='w-full flex flex-row items-center justify-start gap-1'>
+            <ChevronLeft />
+            <Link to="/" >
+              <TypographyParagraphComponent>Back</TypographyParagraphComponent>
+            </Link>
+          </div>
+        </div>
         <CardComponent className="w-full px-5">
-          <CardContentComponent className='px-0'>
+          {
+            grandmaster ?
+            <CardContentComponent className='px-0'>
             <div className='flex flex-row items-start justify-start gap-6'>
               <AvatarComponent className="size-24" >
                 <AvatarImageComponent className="size-24" src={grandmaster.avatar} alt="@shadcn" />
@@ -66,7 +77,9 @@ function GrandmasterPage(): React.ReactElement | null {
                 </div>
               </div>
             </div>
-          </CardContentComponent>
+            </CardContentComponent> :
+            <GrandmasterSkeletonComponent />
+          }
         </CardComponent>
       </div>
     </main>

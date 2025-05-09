@@ -1,24 +1,22 @@
-import React, { useId } from 'react'
+import React from 'react'
 import SkeletonComponent from "@/components/skeleton/skeleton-component.tsx"
-import getRandomNumberBetweenLimitsHelper from "@/helpers/get-random-number-between-limits-helper.ts"
-import useViewportHook from "@/hooks/viewport-hook.ts"
 
 function GrandmasterSkeletonComponent(): React.ReactElement {
-  const componentId = useId()
-  const { vh } = useViewportHook()
-
-  const numberOfGrandmasters = vh % 24
-  const skeletons =  Array.from({ length: numberOfGrandmasters }, (_, i) => getRandomNumberBetweenLimitsHelper(10, 60) + i)
-
   return (
-      <div className="w-full flex flex-col gap-4 items-start space-x-4 overflow-hidden">
-        {
-          skeletons.map((s: number) => {
-            return <SkeletonComponent key={`${componentId}-${s}`} className={`h-4`} style={{ width: `${s}%` }} />
-          })
-        }
-
+    <div className="w-full flex flex-row gap-4 items-start space-x-4 overflow-hidden">
+      <SkeletonComponent className="h-24 w-24 rounded-full" />
+      <div className='w-full flex flex-col items-start justify-center gap-3'>
+        <SkeletonComponent className="h-10 w-100" />
+        <div className='w-full flex flex-row items-center justify-start gap-3'>
+          <SkeletonComponent className="h-6 w-10" />
+          <SkeletonComponent className="h-6 w-80" />
+        </div>
+        <div className='w-full flex flex-row items-center justify-start gap-3'>
+          <SkeletonComponent className="h-6 w-70" />
+          <SkeletonComponent className="h-6 w-80" />
+        </div>
       </div>
+    </div>
   )
 }
 

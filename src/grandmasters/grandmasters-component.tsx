@@ -12,6 +12,10 @@ const grandmastersPromise = getGrandMastersApi();
 function GrandmastersPage(): React.ReactElement {
   const grandmasters = use(grandmastersPromise)
 
+  if (Array.isArray(grandmasters) && grandmasters.length === 0) {
+    return <TypographyParagraphComponent>No grandmasters found</TypographyParagraphComponent>
+  }
+
   return (
     <main>
       <div className="flex flex-col gap-10 items-start space-x-4 w-full">
