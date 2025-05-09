@@ -22,7 +22,7 @@ function GrandmastersPage(): React.ReactElement {
         <TypographyHeader1Component>Grandmasters</TypographyHeader1Component>
           <ScrollAreaComponent style={{ height: "calc(100vh - 170px)"}}>
              {grandmasters ?
-              <ul className="my-0 ml-0 [&>li]:mt-0">
+              <ul id="grandmasters-list" className="my-0 ml-0 [&>li]:mt-0">
                 {grandmasters.players.map((player:GrandmasterUsername) => (
                   <li key={player}>
                     <Link to="/$username" params={{ username: player }}>
