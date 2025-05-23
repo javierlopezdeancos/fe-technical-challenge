@@ -71,7 +71,7 @@ npm run dev
 I choice a set of little example of tests that run with [playwright](https://playwright.dev/). To run this simple example suite you should run:
 
 ```
-npm run tests
+npm run test
 ```
 
 > [!NOTE]
